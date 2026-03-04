@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Header from "./components/Header";
 import "./App.css";
 
 function App() {
@@ -6,7 +7,7 @@ function App() {
 
   return (
     <>
-      <h1>Lexify Dictionary App</h1>
+      <Header />
       <div className=""></div>
       <p className=""></p>
     </>
