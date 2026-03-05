@@ -1,14 +1,10 @@
 import PropTypes from "prop-types";
 import { capitalise, formatSynonyms } from "../utils/textHelpers";
+import "./Definition.css";
+
 
 function DefinitionCard({ partOfSpeech, definition, example, synonyms }) {
   const formattedSynonyms = formatSynonyms(synonyms, 5);
-
-  // Temporary test data - remove before wiring up
-  const testData = {
-    word: "hello",
-    definition: "used as a greeting",
-  };
 
   return (
     <article className="definition-card">

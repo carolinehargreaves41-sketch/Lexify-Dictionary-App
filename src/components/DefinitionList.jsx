@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import DefinitionCard from "./DefinitionCard";
+import "./Definition.css";
 
 function DefinitionList({ meanings }) {
   if (!meanings || meanings.length === 0) return null;

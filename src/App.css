@@ -1,7 +1,112 @@
-body {
+/* ---------- CSS Custom Properties (Design Tokens) ----------*/
+:root {
+  /* Core roles */
+  --color-primary: #a57ef0;
+  --color-cta: #e8508a;
+  --color-heading: #1a1423;
+  --color-background: #fffdf7;
+  --color-accent: #ffc929;
+  --color-error: #c0392b;
+  --color-white: #ffffff;
+
+  /* Extended palette */
+  --color-sun-100: #fff3c4;
+  --color-sun-300: #ffd966;
+  --color-petal-50: #fff0f6;
+  --color-petal-100: #ffd6e8;
+  --color-petal-300: #ffaacf;
+  --color-lavender-50: #f5f0ff;
+  --color-lavender-100: #e6d9ff;
+  --color-lavender-300: #c4a8f7;
+  --color-ink-300: #b8a9cc;
+  --color-ink-500: #6b5d80;
+
+  /* Typography */
+  --font-heading: "Fraunces", Georgia, serif;
+  --font-body: "DM Sans", sans-serif;
+
+  /* Spacing scale */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-xxl: 3rem;
+
+  /* Border radius */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+
+  /* Line heights */
+  --line-height-body: 1.65;
+  --line-height-heading: 1.15;
+}
+
+/* ---------- Base Reset ---------- */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-  background: #fff6f6;
-  margin: 2rem;
-  padding: 2rem;
-  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- Body ---------- */
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: var(--line-height-body);
+  color: var(--color-heading);
+  background-color: var(--color-background);
+  min-height: 100vh;
+}
+
+/* ---------- Gradient Background ---------- */
+.gradient-bg {
+  background-color: var(--color-background);
+  background-image:
+    radial-gradient(
+      ellipse at 10% 0%,
+      rgba(255, 217, 102, 0.3) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 95% 5%,
+      rgba(255, 170, 207, 0.28) 0%,
+      transparent 45%
+    ),
+    radial-gradient(
+      ellipse at 80% 80%,
+      rgba(196, 168, 247, 0.22) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 0% 90%,
+      rgba(255, 214, 232, 0.25) 0%,
+      transparent 45%
+    );
+  min-height: 100vh;
+  padding: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .gradient-bg {
+    padding: var(--space-xl);
+  }
+}
+
+/* ---------- Typography ---------- */
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  line-height: var(--line-height-heading);
+  color: var(--color-heading);
+}
+
+/* ---------- Content container ---------- */
+.content-container {
+  max-width: 720px;
+  margin: 0 auto;
 }

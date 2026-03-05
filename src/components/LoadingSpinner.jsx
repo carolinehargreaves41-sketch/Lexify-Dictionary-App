@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import "./LoadingSpinner.css";
 
 function LoadingSpinner({ isLoading }) {
   if (!isLoading) return null;

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
+import "./SearchBar.css";
 
 function SearchBar({ onSearch, isLoading }) {
   const [inputValue, setInputValue] = useState("");
@@ -42,7 +43,7 @@ function SearchBar({ onSearch, isLoading }) {
       <div className="flex-grow-1">
         <input
           type="text"
-          className="search-bar__input w-50"
+          className="search-bar__input w-100"
           value={inputValue}
           onChange={(e) => {
             setInputValue(e.target.value);

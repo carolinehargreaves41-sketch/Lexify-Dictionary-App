@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import "./Header.css";
 
 function Header({ word, phonetic }) {
   return (

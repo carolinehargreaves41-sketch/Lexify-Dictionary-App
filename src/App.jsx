@@ -53,33 +53,39 @@ function App() {
 
       <footer
         className="text-center py-4 mt-4"
-        style={{ color: "#000", fontSize: "0.8rem" }}
+        style={{ color: "--color-heading", fontSize: "0.8rem" }}
       >
-        <p>
-          This project was coded by Caroline Hargreaves,{" "}
+        <small>
+          This project was coded by{" "}
           <a
-            href=""
+            href="https://github.com/carolinehargreaves41-sketch"
             target="_blank"
             rel="noopener noreferrer"
             style={{ color: "var(--color-primary)" }}
-          ></a>
-          is open-sourced on GitHub,{" "}
+          >
+            Caroline Hargreaves
+          </a>
+          , is{" "}
           <a
-            href=""
+            href="https://github.com/carolinehargreaves41-sketch/Lexify-Dictionary-App"
             target="_blank"
             rel="noopener noreferrer"
             style={{ color: "var(--color-primary)" }}
-          ></a>
-          and hosted on Netlify.{" "}
+          >
+            open-sourced on GitHub
+          </a>
+          , and{" "}
           <a
-            href=""
+            href="https://storied-centaur-9c1747.netlify.app/"
             target="_blank"
             rel="noopener noreferrer"
             style={{ color: "var(--color-primary)" }}
-          ></a>
-          <br />
-          Powered by SheCodes Dictionary API
-        </p>
+          >
+            hosted on Netlify.
+          </a>
+        </small>
+        <br />
+        <small> Powered by SheCodes Dictionary API</small>
       </footer>
     </div>
   );

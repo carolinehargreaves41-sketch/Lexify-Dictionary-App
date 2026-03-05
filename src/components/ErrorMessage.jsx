@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import "./ErrorMessage.css";
 
 function ErrorMessage({ message }) {
   if (!message) return null;
