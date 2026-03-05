@@ -1,16 +1,87 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import Header from "./components/Header";
-import "./App.css";
+import SearchBar from "./components/SearchBar";
+import LoadingSpinner from "./components/LoadingSpinner";
+import ErrorMessage from "./components/ErrorMessage";
+import DefinitionList from "./components/DefinitionList";
+import { fetchDefinition } from "./services/dictionaryService";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [word, setWord] = useState("");
+  const [phonetic, setPhonetic] = useState("");
+  const [meanings, setMeanings] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const handleSearch = useCallback(async (searchTerm) => {
+    setError(null);
+    setMeanings([]);
+    setWord("");
+    setPhonetic("");
+    setIsLoading(true);
+
+    try {
+      const data = await fetchDefinition(searchTerm);
+      setWord(data.word || searchTerm);
+      setPhonetic(data.phonetic || "");
+      setMeanings(data.meanings || []);
+
+      if (!data.meanings || data.meanings.length === 0) {
+        setError(
+          `We could not find a definition for "${searchTerm}". Please try another word.`,
+        );
+      }
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
 
   return (
-    <>
-      <Header />
-      <div className=""></div>
-      <p className=""></p>
-    </>
+    <div className="gradient-bg">
+      <Header word={word} phonetic={phonetic} />
+
+      <main className="content-container" id="main-content">
+        <SearchBar onSearch={handleSearch} isLoading={isLoading} />
+        <LoadingSpinner isLoading={isLoading} />
+        {!isLoading && <ErrorMessage message={error} />}
+        {!isLoading && !error && meanings.length > 0 && (
+          <DefinitionList meanings={meanings} />
+        )}
+      </main>
+
+      <footer
+        className="text-center py-4 mt-4"
+        style={{ color: "#000", fontSize: "0.8rem" }}
+      >
+        <p>
+          This project was coded by Caroline Hargreaves,{" "}
+          <a
+            href=""
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "var(--color-primary)" }}
+          ></a>
+          is open-sourced on GitHub,{" "}
+          <a
+            href=""
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "var(--color-primary)" }}
+          ></a>
+          and hosted on Netlify.{" "}
+          <a
+            href=""
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "var(--color-primary)" }}
+          ></a>
+          <br />
+          Powered by SheCodes Dictionary API
+        </p>
+      </footer>
+    </div>
   );
 }
 
