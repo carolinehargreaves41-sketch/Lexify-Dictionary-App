@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 function Header({ word, phonetic }) {
   return (
     <header className="app-header" role="banner">
-      <h1 className="app-header__title">Lexify Dictionary App</h1>
+      <h1 className="app-header__title">Lexi Dictionary App</h1>
 
       <p className="app-header__tagline">Define. Discover.</p>
 
