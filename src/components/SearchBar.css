@@ -36,6 +36,28 @@
   box-shadow: 0 0 0 4px rgba(165, 126, 240, 0.18);
 }
 
+.search-bar__input-wrapper {
+  position: relative;
+}
+
+.search-bar__clear {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--color-primary);
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+.search-bar__clear:hover {
+  color: var(--color-ink-500);
+}
+
 .search-bar__button {
   padding: var(--space-sm) var(--space-lg);
   background: linear-gradient(135deg, var(--color-primary), var(--color-cta));

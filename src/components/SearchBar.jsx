@@ -4,7 +4,6 @@ import "./SearchBar.css";
 
 function SearchBar({ onSearch, isLoading }) {
   const [inputValue, setInputValue] = useState("");
-
   const [validationError, setValidationError] = useState("");
 
   const handleSubmit = (event) => {
@@ -18,12 +17,13 @@ function SearchBar({ onSearch, isLoading }) {
     }
 
     if (!/^[a-zA-Z\-']+$/.test(trimmed)) {
-      setValidationError("Please enter a valid word (letters only).");
+      setValidationError(
+        "Please enter a valid word (letters only - no spaces).",
+      );
       return;
     }
 
     setValidationError("");
-
     onSearch(trimmed);
   };
 
@@ -33,6 +33,11 @@ function SearchBar({ onSearch, isLoading }) {
     }
   };
 
+  const handleClear = () => {
+    setInputValue("");
+    setValidationError("");
+  };
+
   return (
     <form
       className="search-bar"
@@ -40,14 +45,13 @@ function SearchBar({ onSearch, isLoading }) {
       aria-label="Dictionary word search"
       noValidate
     >
-      <div className="flex-grow-1">
+      <div className="flex-grow-1 search-bar__input-wrapper">
         <input
           type="text"
           className="search-bar__input w-100"
           value={inputValue}
           onChange={(e) => {
             setInputValue(e.target.value);
-
             if (validationError) setValidationError("");
           }}
           onKeyDown={handleKeyDown}
@@ -61,6 +65,17 @@ function SearchBar({ onSearch, isLoading }) {
           autoFocus
           maxLength={50}
         />
+
+        {inputValue && !isLoading && (
+          <button
+            type="button"
+            className="search-bar__clear"
+            onClick={handleClear}
+            aria-label="Clear search"
+          >
+            ×
+          </button>
+        )}
 
         {validationError && (
           <p id="search-error" className="text-danger small mt-1" role="alert">
@@ -89,4 +104,5 @@ SearchBar.propTypes = {
 SearchBar.defaultProps = {
   isLoading: false,
 };
+
 export default SearchBar;
