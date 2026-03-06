@@ -25,7 +25,7 @@ export async function fetchDefinition(word) {
 
       if (status === 404) {
         throw new Error(
-          `We could not find a definition for "${word}". Please check your spelling and try again.`,
+          `We couldn't find a definition for "${word}". Please check your spelling and try again.`,
         );
       } else if (status === 401 || status === 403) {
         throw new Error("API key error. Please check and try again.");

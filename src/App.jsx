@@ -5,6 +5,7 @@ import LoadingSpinner from "./components/LoadingSpinner";
 import ErrorMessage from "./components/ErrorMessage";
 import DefinitionList from "./components/DefinitionList";
 import AudioPlayer from "./components/AudioPlayer";
+import PhotoGrid from "./components/PhotoGrid";
 import { fetchDefinition, fetchAudio } from "./services/dictionaryService";
 
 function App() {
@@ -34,7 +35,7 @@ function App() {
 
       if (!data.meanings || data.meanings.length === 0) {
         setError(
-          `We could not find a definition for "${searchTerm}". Please try another word.`,
+          `We couldn't find a definition for "${searchTerm}". Please try another word.`,
         );
       }
     } catch (err) {
@@ -57,6 +58,7 @@ function App() {
         {!isLoading && !error && meanings.length > 0 && (
           <DefinitionList meanings={meanings} />
         )}
+        {!isLoading && !error && word && <PhotoGrid word={word} />}
       </main>
 
       <footer
@@ -66,16 +68,16 @@ function App() {
         <small>
           This project was coded by{" "}
           <a
-            href="https://github.com/carolinehargreaves41-sketch"
+            href="#"
             target="_blank"
             rel="noopener noreferrer"
             style={{ color: "var(--color-primary)" }}
           >
-            Caroline Hargreaves
+            Bob
           </a>
           , is{" "}
           <a
-            href="https://github.com/carolinehargreaves41-sketch/Lexify-Dictionary-App"
+            href="#"
             target="_blank"
             rel="noopener noreferrer"
             style={{ color: "var(--color-primary)" }}
@@ -84,7 +86,7 @@ function App() {
           </a>
           , and{" "}
           <a
-            href="https://storied-centaur-9c1747.netlify.app/"
+            href="#"
             target="_blank"
             rel="noopener noreferrer"
             style={{ color: "var(--color-primary)" }}

@@ -1,0 +1,114 @@
+.photo-grid-section {
+  margin-top: var(--space-xxl);
+}
+
+.photo-grid-section h2 {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  color: var(--color-heading);
+  margin-bottom: var(--space-lg);
+}
+
+.photo-grid-section h2 span {
+  color: var(--color-primary);
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+  list-style-type: none;
+  padding: 0;
+}
+
+@media (min-width: 600px) {
+  .photo-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.photo-card {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: var(--color-lavender-100);
+  aspect-ratio: 1 / 1;
+  position: relative;
+  box-shadow: 0 2px 12px rgba(165, 126, 240, 0.1);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.photo-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(165, 126, 240, 0.2);
+}
+
+.photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-card figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-xs) var(--space-sm);
+  background: linear-gradient(transparent, rgba(26, 20, 35, 0.65));
+  color: var(--color-white);
+  font-size: 0.7rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.photo-card:hover figcaption,
+.photo-card:focus-within figcaption {
+  opacity: 1;
+}
+
+.photo-card a {
+  color: var(--color-white);
+  text-decoration: underline;
+}
+
+.photo-skeleton {
+  border-radius: var(--radius-md);
+  aspect-ratio: 1 / 1;
+  background: linear-gradient(
+    90deg,
+    var(--color-lavender-100) 25%,
+    var(--color-lavender-50) 50%,
+    var(--color-lavender-100) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.pexels-attribution {
+  margin-top: var(--space-md);
+  text-align: right;
+  font-size: 0.75rem;
+  color: var(--color-ink-300);
+}
+
+.pexels-attribution a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.pexels-attribution a:hover {
+  text-decoration: underline;
+}
