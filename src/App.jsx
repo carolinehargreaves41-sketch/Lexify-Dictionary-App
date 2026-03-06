@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
 import LoadingSpinner from "./components/LoadingSpinner";
@@ -7,6 +7,16 @@ import DefinitionList from "./components/DefinitionList";
 import AudioPlayer from "./components/AudioPlayer";
 import PhotoGrid from "./components/PhotoGrid";
 import { fetchDefinition, fetchAudio } from "./services/dictionaryService";
+
+const defaultWords = [
+  "serendipity",
+  "ephemeral",
+  "luminous",
+  "cascade",
+  "reverie",
+];
+const defaultWord =
+  defaultWords[Math.floor(Math.random() * defaultWords.length)];
 
 function App() {
   const [word, setWord] = useState("");
@@ -45,6 +55,10 @@ function App() {
     }
   }, []);
 
+  useEffect(() => {
+    handleSearch(defaultWord);
+  }, [handleSearch]);
+
   return (
     <div className="gradient-bg">
       <Header word={word} phonetic={phonetic} />
@@ -66,18 +80,18 @@ function App() {
         style={{ color: "--color-heading", fontSize: "0.8rem" }}
       >
         <small>
-          This project was coded by{" "}
+          This project was coded with 💜 by{" "}
           <a
-            href="#"
+            href="https://github.com/carolinehargreaves41-sketch"
             target="_blank"
             rel="noopener noreferrer"
             style={{ color: "var(--color-primary)" }}
           >
-            Bob
+            Caroline Hargreaves
           </a>
           , is{" "}
           <a
-            href="#"
+            href="https://github.com/carolinehargreaves41-sketch/Lexify-Dictionary-App"
             target="_blank"
             rel="noopener noreferrer"
             style={{ color: "var(--color-primary)" }}
@@ -86,7 +100,7 @@ function App() {
           </a>
           , and{" "}
           <a
-            href="#"
+            href="https://storied-centaur-9c1747.netlify.app/"
             target="_blank"
             rel="noopener noreferrer"
             style={{ color: "var(--color-primary)" }}
@@ -94,8 +108,6 @@ function App() {
             hosted on Netlify.
           </a>
         </small>
-        <br />
-        <small> Powered by SheCodes Dictionary API</small>
       </footer>
     </div>
   );
