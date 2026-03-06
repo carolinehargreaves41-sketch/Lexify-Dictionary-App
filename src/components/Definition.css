@@ -33,6 +33,7 @@
   font-style: italic;
   color: var(--color-ink-500);
   font-size: 0.9rem;
+  font-weight: 500;
   padding: var(--space-xs) var(--space-md);
   border-left: 3px solid var(--color-petal-300);
   background: var(--color-petal-50);
@@ -42,10 +43,11 @@
 
 .definition-card__synonyms {
   font-size: 0.85rem;
-  color: var(--color-primary);   
+  font-weight: 600;
+  color: var(--color-primary);
 }
 
 .definition-card__synonyms span {
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-heading);
 }

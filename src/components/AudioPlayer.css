@@ -50,6 +50,7 @@
 .audio-player__label {
   font-family: var(--font-body);
   font-size: 0.75rem;
+  font-weight: 700;
   color: var(--color-primary);
   letter-spacing: 0.05em;
   min-width: 60px;

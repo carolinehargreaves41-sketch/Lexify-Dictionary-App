@@ -18,7 +18,7 @@
 }
 
 .app-header__tagline {
-  font-size: 0.95rem;
+  font-size: 1.6rem;
   color: var(--color-ink-500);
   margin-top: var(--space-xs);
   font-weight: 600;
@@ -33,7 +33,7 @@
 }
 
 .app-header__phonetic {
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   color: var(--color-ink-500);
   font-style: italic;
   margin-bottom: 0;
