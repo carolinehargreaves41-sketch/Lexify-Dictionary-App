@@ -47,3 +47,16 @@ export async function fetchDefinition(word) {
     }
   }
 }
+
+export async function fetchAudio(word) {
+  try {
+    const response = await axios.get(
+      `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`,
+    );
+
+    const audio = response.data[0]?.phonetics?.find((p) => p.audio)?.audio;
+    return audio || null;
+  } catch {
+    return null;
+  }
+}

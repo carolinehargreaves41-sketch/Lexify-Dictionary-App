@@ -4,11 +4,13 @@ import SearchBar from "./components/SearchBar";
 import LoadingSpinner from "./components/LoadingSpinner";
 import ErrorMessage from "./components/ErrorMessage";
 import DefinitionList from "./components/DefinitionList";
-import { fetchDefinition } from "./services/dictionaryService";
+import AudioPlayer from "./components/AudioPlayer";
+import { fetchDefinition, fetchAudio } from "./services/dictionaryService";
 
 function App() {
   const [word, setWord] = useState("");
   const [phonetic, setPhonetic] = useState("");
+  const [audioUrl, setAudioUrl] = useState("");
   const [meanings, setMeanings] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -18,6 +20,7 @@ function App() {
     setMeanings([]);
     setWord("");
     setPhonetic("");
+    setAudioUrl("");
     setIsLoading(true);
 
     try {
@@ -25,6 +28,9 @@ function App() {
       setWord(data.word || searchTerm);
       setPhonetic(data.phonetic || "");
       setMeanings(data.meanings || []);
+
+      const audio = await fetchAudio(searchTerm);
+      setAudioUrl(audio || "");
 
       if (!data.meanings || data.meanings.length === 0) {
         setError(
@@ -41,6 +47,8 @@ function App() {
   return (
     <div className="gradient-bg">
       <Header word={word} phonetic={phonetic} />
+
+      <AudioPlayer audioUrl={audioUrl} />
 
       <main className="content-container" id="main-content">
         <SearchBar onSearch={handleSearch} isLoading={isLoading} />
