@@ -78,6 +78,7 @@
 .photo-skeleton {
   border-radius: var(--radius-md);
   aspect-ratio: 1 / 1;
+  min-height: 200px;
   background: linear-gradient(
     90deg,
     var(--color-lavender-100) 25%,

@@ -41,6 +41,7 @@ function SearchBar({ onSearch, isLoading }) {
   return (
     <form
       className="search-bar"
+      id="search-bar"
       onSubmit={handleSubmit}
       aria-label="Dictionary word search"
       noValidate

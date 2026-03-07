@@ -16,7 +16,7 @@ function PhotoGrid({ word }) {
       setPhotos([]);
 
       try {
-        const results = await fetchPhotos(word, 6);
+        const results = await fetchPhotos(word, 3);
         setPhotos(results);
       } catch (err) {
         setError("Couldn't load photos. Please try again.");
@@ -65,7 +65,17 @@ function PhotoGrid({ word }) {
               return (
                 <li key={photo.id}>
                   <figure className="photo-card">
-                    <img src={photo.src.medium} alt={altText} loading="lazy" />
+                    <img
+                      src={photo.src.medium}
+                      alt={altText}
+                      loading={photos.indexOf(photo) === 0 ? "eager" : "lazy"}
+                      fetchpriority={
+                        photos.indexOf(photo) === 0 ? "high" : "auto"
+                      }
+                      width={350}
+                      height={350}
+                      decoding="async"
+                    />
                     <figcaption>
                       {"Photo by "}
                       <a
