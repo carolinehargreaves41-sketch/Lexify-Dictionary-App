@@ -20,7 +20,10 @@
   justify-content: center;
   box-shadow: 0 2px 8px rgba(165, 126, 240, 0.35);
   flex-shrink: 0;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+  will-change: transform;
 }
 
 .audio-player__button:hover {

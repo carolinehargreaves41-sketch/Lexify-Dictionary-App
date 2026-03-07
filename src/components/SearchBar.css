@@ -73,6 +73,7 @@
     box-shadow 0.15s ease;
   white-space: nowrap;
   box-shadow: 0 3px 14px rgba(165, 126, 240, 0.35);
+  will-change: transform;
 }
 
 .search-bar__button:hover {
