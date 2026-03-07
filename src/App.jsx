@@ -72,7 +72,7 @@ function App() {
         {!isLoading && !error && meanings.length > 0 && (
           <DefinitionList meanings={meanings} />
         )}
-        {!isLoading && !error && <PhotoGrid word={word} />}
+        {!isLoading && !error && word && <PhotoGrid word={word} />}
       </main>
 
       <footer
