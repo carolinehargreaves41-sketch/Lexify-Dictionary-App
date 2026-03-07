@@ -66,7 +66,7 @@ function PhotoGrid({ word }) {
                 <li key={photo.id}>
                   <figure className="photo-card">
                     <img
-                      src={photo.src.medium}
+                      src={photo.src.small}
                       alt={altText}
                       loading={photos.indexOf(photo) === 0 ? "eager" : "lazy"}
                       fetchpriority={

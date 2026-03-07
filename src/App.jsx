@@ -72,11 +72,11 @@ function App() {
         {!isLoading && !error && meanings.length > 0 && (
           <DefinitionList meanings={meanings} />
         )}
-        {!isLoading && !error && word && <PhotoGrid word={word} />}
+        {!isLoading && !error && <PhotoGrid word={word} />}
       </main>
 
       <footer
-        className="text-center py-4 mt-4"
+        className="app-footer"
         style={{ color: "--color-heading", fontSize: "0.8rem" }}
       >
         <small>

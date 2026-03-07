@@ -9,7 +9,7 @@ function Header({ word, phonetic }) {
       <p className="app-header__tagline">Define. Discover.</p>
 
       {word && (
-        <div className="mt-3" aria-live="polite">
+        <div style={{ marginTop: "var(--space-md)" }} aria-live="polite">  
           <p className="app-header__word">{word}</p>
           {phonetic && <p className="app-header__phonetic">{phonetic}</p>}
         </div>

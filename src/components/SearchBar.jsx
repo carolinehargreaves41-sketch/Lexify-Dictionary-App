@@ -79,7 +79,7 @@ function SearchBar({ onSearch, isLoading }) {
         )}
 
         {validationError && (
-          <p id="search-error" className="text-danger small mt-1" role="alert">
+          <p id="search-error" className="search-error" role="alert">
             {validationError}
           </p>
         )}

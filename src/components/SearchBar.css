@@ -95,3 +95,12 @@
   transform: none;
   box-shadow: none;
 }
+
+/* Utilities - replacing Bootstrap */
+.w-100 { width: 100%; }
+.flex-grow-1 { flex-grow: 1; }
+.search-error {
+  color: var(--color-error);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}

@@ -112,6 +112,13 @@ h3 {
 }
 
 /* ---------- Footer ---------- */
+
+.app-footer {
+  text-align: center;
+  padding: var(--space-lg) var(--space-md);
+  margin-top: var(--space-xl);
+}
+
 footer a {
   font-weight: 600;
   text-decoration: none;

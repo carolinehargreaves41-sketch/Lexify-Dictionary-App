@@ -6,11 +6,7 @@ function LoadingSpinner({ isLoading }) {
 
   return (
     <div className="loading-wrapper" role="status" aria-live="polite">
-      <div
-        className="spinner-border"
-        style={{ color: "var(--color-primary)" }}
-        aria-hidden="true"
-      />
+      <div className="spinner" aria-hidden="true" />
       <span className="visually-hidden">Loading definition…</span>
     </div>
   );
