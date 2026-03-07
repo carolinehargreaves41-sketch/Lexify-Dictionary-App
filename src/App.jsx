@@ -22,7 +22,14 @@ function App() {
   const [word, setWord] = useState("");
   const [phonetic, setPhonetic] = useState("");
   const [audioUrl, setAudioUrl] = useState("");
-  const [meanings, setMeanings] = useState([]);
+  const [meanings, setMeanings] = useState([
+    {
+      partOfSpeech: "",
+      definition: "Loading definition…",
+      example: "",
+      synonyms: [],
+    },
+  ]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
