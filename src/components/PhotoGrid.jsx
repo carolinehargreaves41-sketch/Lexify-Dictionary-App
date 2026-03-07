@@ -33,7 +33,7 @@ function PhotoGrid({ word }) {
 
   return (
     <section
-      className="photo-grid-section"
+      className={`photo-grid-section${loading ? " photo-grid-section--loading" : ""}`}
       aria-label={"Photos related to " + word}
     >
       <h2>
@@ -66,7 +66,7 @@ function PhotoGrid({ word }) {
                 <li key={photo.id}>
                   <figure className="photo-card">
                     <img
-                      src={photo.src.small}
+                      src={photo.src.medium}
                       alt={altText}
                       loading={photos.indexOf(photo) === 0 ? "eager" : "lazy"}
                       fetchpriority={

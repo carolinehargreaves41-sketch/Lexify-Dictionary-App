@@ -84,7 +84,7 @@ function App() {
 
       <footer
         className="app-footer"
-        style={{ color: "--color-heading", fontSize: "0.8rem" }}
+        style={{ color: "var(--color-heading)", fontSize: "0.8rem" }}
       >
         <small>
           This project was coded with 💜 by{" "}

@@ -1,5 +1,5 @@
 .photo-grid-section {
-  margin-top: var(--space-xxl);
+  margin-top: var(--space-lg);
 }
 
 .photo-grid-section h2 {
@@ -13,12 +13,22 @@
   color: var(--color-primary);
 }
 
+.photo-grid-section--loading {
+  min-height: 300px;
+}
+
 .photo-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: var(--space-md);
   list-style-type: none;
   padding: 0;
+}
+
+@media (min-width: 480px) and (max-width: 599px) {
+  .photo-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (min-width: 600px) {
